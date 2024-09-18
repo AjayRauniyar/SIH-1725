@@ -1,0 +1,12 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .dropzone {
+    border: 2px dashed #1a73e8;
+    padding: 20px;
+    background-color: white;
+    cursor: pointer;
+  }
+  
