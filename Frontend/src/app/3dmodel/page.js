@@ -1,14 +1,14 @@
-import styles from '../../styles/3Dmodel.module.css';
+'use client'
+import { useEffect } from 'react';
 
+const ThreeModel = () => {
+  useEffect(() => {
+    // Dynamically import the Three.js script
+    console.log('Three.js script loaded');
+    import('../3dmodel/main.js').catch((err) => console.error(err));
+  }, []);
 
+  return <div id="container3D" style={{ width: '100vw', height: '100vh' }} />;
+};
 
-export default function ModelComparison() {
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>🔍 3D Model Comparison</h1>
-      <p className={styles.description}>
-        Compare 3D models with real-time progress to ensure on-track delivery.
-      </p>
-    </div>
-  );
-}
+export default ThreeModel;
