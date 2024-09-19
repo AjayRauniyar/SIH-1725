@@ -1,46 +1,22 @@
+css
+Copy code
 .container {
-    padding: 40px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #3f51b5;
-    margin-bottom: 20px;
-  }
-  
-  .description {
-    font-size: 1.2rem;
-    color: #555;
-    max-width: 600px;
-  }
-  
-  .linkContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 40px;
-  }
-  
-  .featureLink {
-    font-size: 1.5rem;
-    color: #3f51b5;
-    text-decoration: none;
-    border: 1px solid #3f51b5;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .featureLink:hover {
-    background-color: #3f51b5;
-    color: white;
-  }
-  
+  text-align: center;
+  padding: 2em;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.description {
+  font-size: 1.2em;
+}
+#container3D {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
