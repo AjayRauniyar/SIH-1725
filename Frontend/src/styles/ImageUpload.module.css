@@ -1,12 +1,97 @@
+/* ImageUpload.module.css */
+
 .container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .dropzone {
-    border: 2px dashed #1a73e8;
-    padding: 20px;
-    background-color: white;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.input[type="file"] {
+  padding: 0;
+}
+
+.select {
+  background-color: #fff;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resultTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.chartContainer {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 16px;
+  margin-top: 15px;
+}

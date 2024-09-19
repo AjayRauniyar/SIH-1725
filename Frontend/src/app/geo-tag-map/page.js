@@ -95,7 +95,7 @@ export default function GeoTagged() {
         <div className={styles.profile}>
           <img src="icons/profile.png" alt="Profile Picture" />
           <div className={styles.info}>
-            <h2>John Doe</h2>
+            <h2>Rahul Kumar</h2>
             <p>Location: Bengaluru, Karnataka</p>
             <p>Company: Brigade Group</p>
             <p>Designation: Project Manager</p>
