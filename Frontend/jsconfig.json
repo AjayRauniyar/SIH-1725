@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",    // This defines the base directory for module resolution
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]  // Path aliasing for cleaner imports
     }
   }
 }
