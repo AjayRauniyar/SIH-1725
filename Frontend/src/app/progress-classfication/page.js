@@ -1,21 +1,11 @@
 "use client";
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Pie, Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, ArcElement, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
+import { LineChart, Line, XAxis as LineXAxis, YAxis as LineYAxis, Tooltip as LineTooltip, Legend as LineLegend, ResponsiveContainer as LineContainer } from 'recharts';
 import styles from '../../styles/ImageUpload.module.css'; // Import your CSS module
 
-// Register chart.js components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  ArcElement,    // For pie charts
-  PointElement,  // For line charts
-  LineElement,   // For line charts
-  Title,
-  Tooltip,
-  Legend
-);
+const COLORS = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'];
 
 const ImageUpload = () => {
   const [previousImage, setPreviousImage] = useState(null);
@@ -51,50 +41,49 @@ const ImageUpload = () => {
         },
       });
       setProgressData(response.data);
+      console.log(response.data);
       setError(null);
     } catch (err) {
       setError(`An error occurred: ${err.message}`);
     }
   };
 
-  // Ensure progressData exists before rendering the chart
-  const pieData = progressData ? {
-    labels: ['Work Done', 'Remaining'],
-    datasets: [{
-      data: [progressData.work_done_percentage, 100 - progressData.work_done_percentage],  // Ensure valid data
-      backgroundColor: ['#36A2EB', '#FF6384'], // Blue for done, Red for remaining
-      hoverBackgroundColor: ['#36A2EB', '#FF6384'], // Colors on hover
-    }],
-  } : null; // If progressData is not available, don't pass data
+  // Prepare data for bar chart and line chart
+  const barData = progressData ? [
+    { name: 'Work Done', value: progressData.work_done_percentage },
+    { name: 'Remaining', value: 100 - progressData.work_done_percentage },
+  ] : [];
 
-  const lineData = progressData ? {
-    labels: ['Similarity Score'],
-    datasets: [{
-      label: 'Similarity Score',
-      data: [progressData.similarity_score],
-      fill: false,
-      borderColor: '#FF6384',
-      tension: 0.1,
-    }],
-  } : null; // If progressData is not available, don't pass data
+  const lineData = progressData ? [
+    { date: 'Now', score: progressData.similarity_score }
+  ] : [];
 
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <h1 className={styles.title}>Image Upload</h1>
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Previous Image:</label>
-          <input type="file" name="previousImage" onChange={handleImageChange} className={styles.input} />
-        </div>
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Current Image:</label>
-          <input type="file" name="currentImage" onChange={handleImageChange} className={styles.input} />
+        <div className={styles.uploadContainer}>
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Previous Image:</label>
+            <input type="file" name="previousImage" onChange={handleImageChange} className={styles.input} />
+            {previousImage && (
+              <img src={URL.createObjectURL(previousImage)} alt="Previous" className={styles.imagePreview} />
+            )}
+          </div>
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Current Image:</label>
+            <input type="file" name="currentImage" onChange={handleImageChange} className={styles.input} />
+            {currentImage && (
+              <img src={URL.createObjectURL(currentImage)} alt="Current" className={styles.imagePreview} />
+            )}
+          </div>
         </div>
         <div className={styles.formGroup}>
           <label className={styles.label}>Category:</label>
           <select value={category} onChange={(e) => setCategory(e.target.value)} className={styles.select}>
             <option value="foundation">Foundation</option>
-            <option value="superstructure">Super Structure</option>
+            <option value="super structure">Super Structure</option>
+            <option value="furnishing">Super Structure</option>
             <option value="interiors">Interiors</option>
           </select>
         </div>
@@ -108,14 +97,40 @@ const ImageUpload = () => {
           <p><strong>Work Done Percentage:</strong> {progressData.work_done_percentage}%</p>
           <p><strong>Similarity Score:</strong> {progressData.similarity_score}</p>
 
+          {/* Bar chart for work done */}
           <div className={styles.chartContainer}>
             <h3>Work Done Percentage</h3>
-            {/* Ensure pieData is not null */}
-            {pieData && <Pie data={pieData} />}
+            {barData.length > 0 && (
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={barData}>
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="value">
+                    {barData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            )}
+          </div>
 
+          {/* Line chart for similarity score */}
+          <div className={styles.chartContainer}>
             <h3>Similarity Score</h3>
-            {/* Ensure lineData is not null */}
-            {lineData && <Line data={lineData} />}
+            {lineData.length > 0 && (
+              <LineContainer width="100%" height={300}>
+                <LineChart data={lineData}>
+                  <LineXAxis dataKey="date" />
+                  <LineYAxis />
+                  <LineTooltip />
+                  <LineLegend />
+                  <Line type="monotone" dataKey="score" stroke="#82ca9d" />
+                </LineChart>
+              </LineContainer>
+            )}
           </div>
         </div>
       )}
