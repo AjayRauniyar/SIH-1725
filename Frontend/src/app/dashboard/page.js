@@ -26,8 +26,8 @@ import React, { useState } from 'react';
 import styles from '../../styles/Dashboard.module.css';
 
 const userData = {
-    name: "John Doe",
-    email: "johndoe@example.com",
+    name: "Rahul Kumar",
+    email: "rahulkumar@example.com",
     role: "Project Manager",
     avatar: "/icons/profile.jpg",
     projects: "3 Ongoing Projects",
@@ -41,9 +41,9 @@ const userData = {
   
 const workProgressData = [
   { phase: 'Foundation', progress: 100 },
-  { phase: 'Framing', progress: 80 },
-  { phase: 'Plumbing', progress: 60 },
-  { phase: 'Electrical', progress: 40 },
+  { phase: 'Super Structure', progress: 80 },
+  { phase: 'Furnishing', progress: 60 },
+  { phase: 'Interior', progress: 40 },
 ];
 
 const budgetData = [
