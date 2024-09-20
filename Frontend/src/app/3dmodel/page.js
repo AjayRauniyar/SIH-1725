@@ -100,16 +100,16 @@ const ModelViewer = ({ modelId }) => {
 
 const ModelList = ({ onSelectModel }) => {
   const models = [
-    { id: 1, name: 'Model 1', icon: '/icons/modelicon.png' },
-    { id: 2, name: 'Model 2', icon: '/icons/modelicon.png' },
-    { id: 3, name: 'Model 3', icon: '/icons/modelicon.png' },
-    { id: 4, name: 'Model 4', icon: '/icons/modelicon.png' },
-    { id: 5, name: 'Model 5', icon: '/icons/modelicon.png' },
-    { id: 6, name: 'Model 6', icon: '/icons/modelicon.png' },
-    { id: 7, name: 'Model 7', icon: '/icons/modelicon.png' },
-    { id: 8, name: 'Model 8', icon: '/icons/modelicon.png' },
-    { id: 9, name: 'Model 9', icon: '/icons/modelicon.png' },
-    { id: 10, name: 'Model 10', icon: '/icons/modelicon.png' },
+    { id: 1, name: 'Modern House', icon: '/icons/modern house.png' },
+    { id: 2, name: 'Apartment', icon: '/icons/apartment.png' },
+    { id: 3, name: 'Bedroom', icon: '/icons/bedroom 1.png' },
+    { id: 4, name: 'House', icon: '/icons/house.png' },
+    { id: 5, name: 'Office', icon: '/icons/office.png' },
+    { id: 6, name: 'Tech Park', icon: '/icons/tech park.png' },
+    { id: 7, name: 'Modern Bedroom', icon: '/icons/modern bedroom.png' },
+    { id: 8, name: 'Construction site', icon: '/icons/construction site.png' },
+    { id: 9, name: 'Sports Square', icon: '/icons/sports square.png' },
+    { id: 10, name: 'Corporate Office', icon: '/icons/corporate office.png' },
   ];
 
   return (
