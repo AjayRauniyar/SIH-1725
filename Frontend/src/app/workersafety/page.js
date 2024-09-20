@@ -25,7 +25,7 @@ function SafetyCompliance() {
         formData.append('file', selectedFile);
 
         try {
-            const response = await fetch('http://localhost:5000/upload', {
+            const response = await fetch('https://sih-1725.onrender.com/upload', {
                 method: 'POST',
                 body: formData,
             });
@@ -63,11 +63,11 @@ function SafetyCompliance() {
                   <div className={styles.imagesContainer}>
                       <div className={styles.imageBox}>
                           <h3 className={styles.imageTitle}>Uploaded Image</h3>
-                          <img src={`http://localhost:5000/${result.uploaded_image_path}`} alt="Uploaded" className={styles.image} />
+                          <img src={`https://sih-1725.onrender.com/${result.uploaded_image_path}`} alt="Uploaded" className={styles.image} />
                       </div>
                       <div className={styles.imageBox}>
                           <h3 className={styles.imageTitle}>Result Image</h3>
-                          <img src={`http://localhost:5000/${result.result_image_path}`} alt="Result" className={styles.image} />
+                          <img src={`https://sih-1725.onrender.com/${result.result_image_path}`} alt="Result" className={styles.image} />
                       </div>
                   </div>
               )}

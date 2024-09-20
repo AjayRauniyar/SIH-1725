@@ -35,7 +35,7 @@ const ImageUpload = () => {
     formData.append('current_image', currentImage);
 
     try {
-      const response = await axios.post(`http://localhost:5000/upload/${category}`, formData, {
+      const response = await axios.post(`https://sih-1725.onrender.com/upload/${category}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
