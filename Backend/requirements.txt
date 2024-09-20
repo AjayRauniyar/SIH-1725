@@ -1,4 +1,3 @@
 flask
 ultralytics
-PIL
 werkzeug.utils
