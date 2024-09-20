@@ -82,8 +82,8 @@ const ImageUpload = () => {
           <label className={styles.label}>Category:</label>
           <select value={category} onChange={(e) => setCategory(e.target.value)} className={styles.select}>
             <option value="foundation">Foundation</option>
-            <option value="super structure">Super Structure</option>
-            <option value="furnishing">Super Structure</option>
+            <option value="superstructure">Super Structure</option>
+            <option value="furnishing">furnishing</option>
             <option value="interiors">Interiors</option>
           </select>
         </div>
