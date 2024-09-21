@@ -16,6 +16,9 @@ function SafetyCompliance() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        console.log('Form submitted successfully.');
+
+
         if (!selectedFile) {
             alert("Please select a file first.");
             return;
@@ -38,7 +41,7 @@ function SafetyCompliance() {
             setResult(data);  // Display the result images side by side
 
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error::', error);
         }
     };
 
